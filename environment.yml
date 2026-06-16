@@ -1,0 +1,15 @@
+name: ebtools
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11
+  - numpy>=2.3,<3
+  - pandas>=3.0,<4
+  - pytz>=2025.2
+  - pyarrow>=23.0,<24
+  - fastparquet>=2025.12
+  - openpyxl>=3.1,<4
+  - pytest>=9.0,<10
+  - ruff>=0.14,<0.15
+  - black>=26.1,<27
+  - build>=1,<2
