@@ -23,3 +23,7 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Repository = "https://github.com/eamonn-bell/ebtools"
+Issues = "https://github.com/eamonn-bell/ebtools/issues"

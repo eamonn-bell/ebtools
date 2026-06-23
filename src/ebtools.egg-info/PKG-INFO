@@ -261,15 +261,26 @@ Core dependencies include:
 import pandas as pd
 import ebtools as ebt
 
-df = pd.DataFrame({"Date": ["2024-03-14", "15/03/2024"]})
+df = pd.DataFrame(
+    {"Date": [
+        "2024-03-14",
+        "15/03/2024",
+        "21/11/2023",
+        "2024-05-01"
+        ]}
+    )
 
-result = ebt.check_datetime_formats(
+df_result = ebt.check_datetime_formats(
     df,
     colname="Date",
     format_list=["%Y-%m-%d", "%d/%m/%Y"],
 )
 
-print(result)
+        Date
+0 2024-03-14
+1 2024-03-15
+2 2023-11-21
+3 2024-05-01
 ```
 
 ### Parse Timezone-Aware Datetime Columns
@@ -280,13 +291,14 @@ import ebtools as ebt
 
 df = pd.DataFrame({"Date": ["2024-03-15T01:30:00+01:00"]})
 
-result = ebt.check_datetime_formats_tz(
+df_result = ebt.check_datetime_formats_tz(
     df,
     colname="Date",
     format_list_tz="%Y-%m-%dT%H:%M:%S%z",
 )
 
-print(result)
+                 Date
+0 2024-03-15 00:30:00
 ```
 
 ### Filter A Dataframe
@@ -302,7 +314,9 @@ df = pd.DataFrame({
 
 wind = ebt.df_filter(df, colname="Fuel", term="Wind")
 
-print(wind)
+   Fuel  Output
+0  Wind     100
+2  Wind     120
 ```
 
 ### Force A Value To A List
@@ -312,8 +326,7 @@ import ebtools as ebt
 
 value = ebt.force_to_list("Wind")
 
-print(value)
-# ['Wind']
+['Wind']
 ```
 
 ### Convert A Date To A Datetime Boundary
@@ -324,8 +337,8 @@ import ebtools as ebt
 start = ebt.convert_date_to_datetime("2024-03-14", position="start")
 end = ebt.convert_date_to_datetime("2024-03-14", position="end")
 
-print(start)
-print(end)
+'2024-03-14 00:00:00'   # start
+'2024-03-14 23:59:59'   # end
 ```
 
 ### Convert A Delivery Date And EFA Block To An EFA Datetime
@@ -335,8 +348,7 @@ import ebtools as ebt
 
 efa_datetime = ebt.convert_date_to_efa_datetime("2023-03-14", efa=1)
 
-print(efa_datetime)
-# 2023-03-13T23:00:00
+# '2023-03-13T23:00:00'
 ```
 
 ### Save Dataframes To Excel
@@ -366,14 +378,13 @@ df = pd.DataFrame({"Date": pd.date_range("2024-01-01", periods=14)})
 
 week_start = ebt.week_starting(
     df,
-    week=1,
+    week=2,
     year=2024,
     weekday="Mon",
     return_format="%Y-%m-%d",
 )
 
-print(week_start)
-# 2024-01-01
+# 2024-01-08
 ```
 
 ### Keep The Largest Values In Each Array Row
@@ -389,7 +400,8 @@ arr = np.array([
 
 result = ebt.n_largest_values_per_row(arr, largest=1, replace=0)
 
-print(result)
+array([[3, 0, 0],
+       [9, 0, 0]])
 ```
 
 ## Development
