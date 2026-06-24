@@ -204,6 +204,8 @@ License:                                  Apache License
            See the License for the specific language governing permissions and
            limitations under the License.
         
+Project-URL: Repository, https://github.com/eamonn-bell/ebtools
+Project-URL: Issues, https://github.com/eamonn-bell/ebtools/issues
 Classifier: License :: OSI Approved :: Apache Software License
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown

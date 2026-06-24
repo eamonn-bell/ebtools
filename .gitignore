@@ -3,3 +3,13 @@ __pycache__
 *.DS_Store
 grep_count.txt
 AGENTS.md
+
+
+# PyPI build artifacts
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
